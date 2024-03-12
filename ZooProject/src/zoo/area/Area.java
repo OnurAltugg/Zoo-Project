@@ -8,6 +8,7 @@ import zoo.model.Creature;
 public class Area {
 	
 	private static List<Creature> creatures = new ArrayList<>();
+	private static Creature[][] zoo = new Creature[500][500];
 	
 
 	public static List<Creature> getCreatures() {
@@ -20,6 +21,10 @@ public class Area {
 	
 	public static void removeCreature(Creature creature) {
 		creatures.remove(creature);
+	}
+
+	public static Creature[][] getZoo() {
+		return zoo;
 	}
 
 }
