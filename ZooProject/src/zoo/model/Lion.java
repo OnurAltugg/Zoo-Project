@@ -1,7 +1,7 @@
-package com.zoo.model;
+package zoo.model;
 
-import com.zoo.area.Location;
-import com.zoo.gender.Gender;
+import zoo.area.Location;
+import zoo.gender.Gender;
 
 public class Lion implements Hunter {
 	
@@ -43,9 +43,14 @@ private final static int stepNumber = 4;
 	}
 
 	@Override
-	public void eat() {
+	public void hunt() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String toString() {
+		return "Lion: " + location.toString() + ", Gender=" + gender;
 	}
 
 }

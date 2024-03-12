@@ -1,7 +1,7 @@
-package com.zoo.model;
+package zoo.model;
 
-import com.zoo.area.Location;
-import com.zoo.gender.Gender;
+import zoo.area.Location;
+import zoo.gender.Gender;
 
 public class Chicken implements Creature {
 
@@ -40,6 +40,11 @@ public class Chicken implements Creature {
 	public void couple() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String toString() {
+		return "Chicken: " + location.toString() + ", Gender=" + gender;
 	}
 	
 }

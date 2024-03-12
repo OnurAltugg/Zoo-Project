@@ -1,4 +1,4 @@
-package com.zoo.gender;
+package zoo.gender;
 
 import java.util.Random;
 

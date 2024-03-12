@@ -1,7 +1,7 @@
-package com.zoo.model;
+package zoo.model;
 
-import com.zoo.area.Location;
-import com.zoo.gender.Gender;
+import zoo.area.Location;
+import zoo.gender.Gender;
 
 public class Wolf implements Hunter {
 	
@@ -43,9 +43,14 @@ public class Wolf implements Hunter {
 	}
 
 	@Override
-	public void eat() {
+	public void hunt() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String toString() {
+		return "Wolf: " + location.toString() + ", Gender=" + gender;
 	}
 
 }

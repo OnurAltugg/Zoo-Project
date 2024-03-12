@@ -1,6 +1,6 @@
-package com.zoo.model;
+package zoo.model;
 
-import com.zoo.area.Location;
+import zoo.area.Location;
 
 public class HunterHuman implements Hunter {
 	
@@ -31,9 +31,14 @@ public class HunterHuman implements Hunter {
 	}
 
 	@Override
-	public void eat() {
+	public void hunt() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String toString() {
+		return "HunterHuman: " + location.toString();
 	}
 
 }

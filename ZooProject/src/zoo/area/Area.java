@@ -1,9 +1,9 @@
-package com.zoo.area;
+package zoo.area;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zoo.model.Creature;
+import zoo.model.Creature;
 
 public class Area {
 	

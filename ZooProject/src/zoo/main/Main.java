@@ -1,25 +1,33 @@
-package com.zoo.main;
+package zoo.main;
 
-import com.zoo.area.Area;
-import com.zoo.model.Creature;
-import com.zoo.model.Sheep;
+import zoo.area.Area;
+import zoo.model.*;
+
 
 public class Main {
-	
-	public static void createAnimals(int numberOfAnimals, Creature creature) {
-		for(int i = 1; i<=numberOfAnimals; i++) {
-			
-		}
-	}
 
 	public static void main(String[] args) {
 		for(int i = 1; i <= 30; i++) {
 			Area.addCreature(new Sheep());
 		}
-		for (Creature x : Area.getCreatures()) {
-			System.out.println(((Sheep) x).getGender());
-			System.out.println(((Sheep) x).getLocation().getRowPosition());
-			System.out.println(((Sheep) x).getLocation().getColumnPosition());
+		for(int i = 1; i <= 10; i++) {
+			Area.addCreature(new Cow());
+		}
+		for(int i = 1; i <= 10; i++) {
+			Area.addCreature(new Chicken());
+		}
+		for(int i = 1; i <= 10; i++) {
+			Area.addCreature(new Wolf());
+		}
+		for(int i = 1; i <= 10; i++) {
+			Area.addCreature(new Rooster());
+		}
+		for(int i = 1; i <= 8; i++) {
+			Area.addCreature(new Lion());
+		}
+		Area.addCreature(new HunterHuman());
+		for (Creature creature : Area.getCreatures()) {
+			System.out.println(creature);
 		}
 	}
 

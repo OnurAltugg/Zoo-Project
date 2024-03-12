@@ -1,7 +1,7 @@
-package com.zoo.model;
+package zoo.model;
 
-import com.zoo.area.Location;
-import com.zoo.gender.Gender;
+import zoo.area.Location;
+import zoo.gender.Gender;
 
 public class Rooster implements Creature {
 	
@@ -40,6 +40,11 @@ private final static int stepNumber = 1;
 	public void couple() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String toString() {
+		return "Rooster: " + location.toString() + ", Gender=" + gender;
 	}
 
 }
