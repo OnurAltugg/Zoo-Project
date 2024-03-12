@@ -1,5 +1,5 @@
-package com.zoo.model;
+package zoo.model;
 
 public interface Hunter extends Creature{
-	void eat();
+	void hunt();
 }

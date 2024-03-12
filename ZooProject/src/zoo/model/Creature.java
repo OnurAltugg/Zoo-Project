@@ -1,4 +1,4 @@
-package com.zoo.model;
+package zoo.model;
 
 public interface Creature {
 	void couple();
