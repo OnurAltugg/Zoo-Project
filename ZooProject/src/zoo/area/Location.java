@@ -1,32 +1,37 @@
-package com.zoo.area;
+package zoo.area;
 
 import java.util.Random;
 
 public class Location {
 	
-	private int rowPosition;
-	private int columnPosition;
+	private int x;
+	private int y;
 	
 	public Location() {
 		Random random = new Random();
-		setRowPosition(random.nextInt(500));
-		setColumnPosition(random.nextInt(500));
+		setX(random.nextInt(500));
+		setY(random.nextInt(500));
 	}
 
-	public int getRowPosition() {
-		return rowPosition;
+	public int getX() {
+		return x;
 	}
 
-	public void setRowPosition(int rowPosition) {
-		this.rowPosition = rowPosition;
+	public void setX(int rowPosition) {
+		this.x = rowPosition;
 	}
 
-	public int getColumnPosition() {
-		return columnPosition;
+	public int getY() {
+		return y;
 	}
 
-	public void setColumnPosition(int columnPosition) {
-		this.columnPosition = columnPosition;
+	public void setY(int columnPosition) {
+		this.y = columnPosition;
+	}
+
+	@Override
+	public String toString() {
+		return "Location x=" + x + ", y=" + y;
 	}
 	
 }
