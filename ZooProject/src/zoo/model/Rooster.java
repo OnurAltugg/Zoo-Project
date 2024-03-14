@@ -1,7 +1,7 @@
 package zoo.model;
 
 import zoo.area.Location;
-import zoo.gender.Gender;
+import zoo.enums.Gender;
 
 public class Rooster implements Creature {
 	
