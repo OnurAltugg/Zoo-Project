@@ -8,9 +8,17 @@ public class Location {
 	private int y;
 	
 	public Location() {
-		Random random = new Random();
-		setX(random.nextInt(500));
-		setY(random.nextInt(500));
+		boolean findEmptyPlace = false;
+		while(!findEmptyPlace) {
+			Random random = new Random();
+			int tempX = random.nextInt(500);
+			int tempY = random.nextInt(500);
+			if(Area.getZoo()[tempX][tempY] == null) {
+				setX(tempX);
+				setY(tempY);
+				findEmptyPlace = true;
+			}
+		}
 	}
 
 	public int getX() {
