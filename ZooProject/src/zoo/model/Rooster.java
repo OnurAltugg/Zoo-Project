@@ -1,19 +1,19 @@
 package zoo.model;
 
+import zoo.area.Area;
 import zoo.area.Location;
 import zoo.enums.Gender;
 
 public class Rooster implements Creature {
 	
-private final static int stepNumber = 1;
-	
+	private final static int stepNumber = 1;
 	private Location location;
-	
 	private Gender gender;
 	
 	public Rooster() {
 		setGender(Gender.getRandomGender());
 		setLocation(new Location());
+		Area.getZoo()[location.getX()][location.getY()] = this;
 	}
 
 	public Gender getGender() {
