@@ -1,31 +1,43 @@
 package zoo.main;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 import zoo.area.Area;
 import zoo.model.*;
 
-
 public class Main {
+	
+	public static <T extends Creature> void addAnimals(Class<T> animalType, int numberOfAnimals) {
+		Constructor<T> constructor = null;
+		try {
+			constructor = animalType.getDeclaredConstructor();
+		} 
+		catch (NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+		}
+		
+        for (int i = 1; i <= numberOfAnimals; i++) {
+            T animal = null;
+			try {
+				animal = constructor.newInstance();
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+										| InvocationTargetException e) {
+				e.printStackTrace();
+			}
+            Area.addCreature(animal);
+        }
+	}
 
 	public static void main(String[] args) {
-		for(int i = 1; i <= 30; i++) {
-			Area.addCreature(new Sheep());
-		}
-		for(int i = 1; i <= 10; i++) {
-			Area.addCreature(new Cow());
-		}
-		for(int i = 1; i <= 10; i++) {
-			Area.addCreature(new Chicken());
-		}
-		for(int i = 1; i <= 10; i++) {
-			Area.addCreature(new Wolf());
-		}
-		for(int i = 1; i <= 10; i++) {
-			Area.addCreature(new Rooster());
-		}
-		for(int i = 1; i <= 8; i++) {
-			Area.addCreature(new Lion());
-		}
-		Area.addCreature(new HunterHuman());
+		addAnimals(Sheep.class, 30);
+		addAnimals(Cow.class, 10);
+		addAnimals(Chicken.class, 10);
+		addAnimals(Wolf.class, 10);
+		addAnimals(Rooster.class, 10);
+		addAnimals(Lion.class, 8);
+		addAnimals(HunterHuman.class, 1);
+		
 		for (Creature creature : Area.getCreatures()) {
 			System.out.println(creature);
 		}
