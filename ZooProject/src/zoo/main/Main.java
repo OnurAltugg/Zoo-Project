@@ -2,6 +2,8 @@ package zoo.main;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
+import java.util.Collections;
 
 import zoo.area.Area;
 import zoo.model.*;
@@ -37,6 +39,8 @@ public class Main {
 		addAnimals(Rooster.class, 10);
 		addAnimals(Lion.class, 8);
 		addAnimals(HunterHuman.class, 1);
+		
+		Collections.shuffle(Area.getCreatures());
 		
 		for (Creature creature : Area.getCreatures()) {
 			System.out.println(creature);
