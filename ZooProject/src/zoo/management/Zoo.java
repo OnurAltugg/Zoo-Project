@@ -1,16 +1,14 @@
-package zoo.main;
+package zoo.management;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-import java.util.Collections;
 
 import zoo.area.Area;
-import zoo.model.*;
+import zoo.model.Creature;
 
-public class Main {
+public class Zoo {
 	
-	public static <T extends Creature> void addAnimals(Class<T> animalType, int numberOfAnimals) {
+	public static <T extends Creature> void createAnimals(Class<T> animalType, int numberOfAnimals) {
 		Constructor<T> constructor = null;
 		try {
 			constructor = animalType.getDeclaredConstructor();
@@ -29,22 +27,6 @@ public class Main {
 			}
             Area.addCreature(animal);
         }
-	}
-
-	public static void main(String[] args) {
-		addAnimals(Sheep.class, 30);
-		addAnimals(Cow.class, 10);
-		addAnimals(Chicken.class, 10);
-		addAnimals(Wolf.class, 10);
-		addAnimals(Rooster.class, 10);
-		addAnimals(Lion.class, 8);
-		addAnimals(HunterHuman.class, 1);
-		
-		Collections.shuffle(Area.getCreatures());
-		
-		for (Creature creature : Area.getCreatures()) {
-			System.out.println(creature);
-		}
 	}
 
 }
