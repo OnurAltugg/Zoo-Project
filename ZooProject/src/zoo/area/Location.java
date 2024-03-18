@@ -39,12 +39,13 @@ public class Location {
 	
 	public void changeLocation(int step) {
 		int negativeStep = -1 * step;
-        int newX = random.nextInt((step - negativeStep) + 1) + negativeStep;
-        int newY = step - (Math.abs(newX));
-        if(checkLocation(getX() + newX, getY() + newY)) {
+        int stepX = random.nextInt((step - negativeStep) + 1) + negativeStep;
+        int stepY = step - (Math.abs(stepX));
+        
+        if(checkLocation(getX() + stepX, getY() + stepY)) {
         	Area.getZoo()[getX()][getY()] = null;
-        	setX(getX() + newX);
-        	setY(getY() + newY);
+        	setX(getX() + stepX);
+        	setY(getY() + stepY);
         }
         else {
         	changeLocation(step);
