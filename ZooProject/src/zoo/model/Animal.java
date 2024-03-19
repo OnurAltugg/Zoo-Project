@@ -22,7 +22,6 @@ public abstract class Animal extends Creature{
 						Math.abs(currentRow - x) + Math.abs(currentColumn - y) <= maxDistance 
 						&& animal.isInstance(Area.getZoo()[x][y])
 						&& getGender() != Area.getZoo()[x][y].getGender()) {
-					System.out.println("SEX OLDU");
 					Area.addCreature(createNewAnimal());
 					return;
 				}
@@ -51,7 +50,6 @@ public abstract class Animal extends Creature{
 	                        Area.getZoo()[x][y] instanceof Rooster) {
 	                    	Area.removeCreature(Area.getZoo()[x][y]);
 	                        Area.getZoo()[x][y] = null;
-	                        System.out.println("ADAM ÖLDÜ AQ");
 	                        return;
 	                    }
 	                } 
@@ -60,14 +58,12 @@ public abstract class Animal extends Creature{
 	                        Area.getZoo()[x][y] instanceof Sheep) {
 	                    	Area.removeCreature(Area.getZoo()[x][y]);
 	                    	Area.getZoo()[x][y] = null;
-	                    	 System.out.println("ADAM ÖLDÜ AQ");
 	                        return;
 	                    }
 	                }
 	                else if (animal.isInstance(HunterHuman.class)) {
 	                	Area.removeCreature(Area.getZoo()[x][y]);
 	                	Area.getZoo()[x][y] = null;
-	                	 System.out.println("ADAM ÖLDÜ AQ");
                         return;
 	                }
 	                else {
