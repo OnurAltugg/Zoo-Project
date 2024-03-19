@@ -19,9 +19,7 @@ public class Main {
 		
 		Collections.shuffle(Area.getCreatures());
 		
-		for (Creature creature : Area.getCreatures()) {
-			System.out.println(creature);
-		}
+		Zoo.simulation();
 	}
 
 }

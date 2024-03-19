@@ -1,6 +1,6 @@
 package zoo.model;
 
-public class HunterHuman extends Creature {
+public class HunterHuman extends Animal {
 	
 	private final static int stepNumber = 1;
 		
@@ -10,6 +10,17 @@ public class HunterHuman extends Creature {
 	
 	public static int getStepnumber() {
 		return stepNumber;
+	}
+	
+	@Override
+	public void move() {
+		checkHunt(HunterHuman.class, 8);
+		getLocation().changeLocation(stepNumber);
+	}
+	
+	@Override
+	protected HunterHuman createNewAnimal() {
+		return new HunterHuman();
 	}
 	
 	@Override

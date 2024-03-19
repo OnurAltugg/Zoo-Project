@@ -1,6 +1,6 @@
 package zoo.model;
 
-public class Sheep extends Creature{
+public class Sheep extends Animal{
 	
 	private final static int stepNumber = 2;
 	
@@ -10,6 +10,17 @@ public class Sheep extends Creature{
 	
 	public static int getStepnumber() {
 		return stepNumber;
+	}
+	
+	@Override
+	public void move() {
+		checkCouple(Sheep.class);
+		getLocation().changeLocation(stepNumber);
+	}
+	
+	@Override
+	protected Sheep createNewAnimal() {
+		return new Sheep();
 	}
 	
 	@Override

@@ -15,6 +15,8 @@ public abstract class Creature {
 		Area.getZoo()[getLocation().getX()][getLocation().getY()] = this;
 	}
 	
+	public abstract void move();
+	
 	public Location getLocation() {
 		return location;
 	}

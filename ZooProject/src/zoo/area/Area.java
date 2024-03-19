@@ -22,7 +22,7 @@ public class Area {
 	public static void removeCreature(Creature creature) {
 		creatures.remove(creature);
 	}
-
+	
 	public static Creature[][] getZoo() {
 		return zoo;
 	}
