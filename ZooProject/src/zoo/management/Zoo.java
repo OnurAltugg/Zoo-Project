@@ -28,5 +28,16 @@ public class Zoo {
             Area.addCreature(animal);
         }
 	}
+	
+	public static void simulation() {
+		for (Creature creature : Area.getCreatures()) {
+			creature.move();
+		}
+		showAnimalsNumber();
+	}
+	
+	private static void showAnimalsNumber() {
+		
+	}
 
 }
