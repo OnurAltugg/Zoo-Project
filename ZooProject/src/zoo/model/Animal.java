@@ -2,10 +2,27 @@ package zoo.model;
 
 import zoo.area.Area;
 
+/**
+ * The {@code Animal} class represents an animal within the zoo.
+ * It is an abstract subclass of {@link Creature} class and provides methods for animal interactions such as finding a mate or hunting.
+ */
 public abstract class Animal extends Creature{
 	
+	/**
+     * Creates a new animal of the same type.
+     * 
+     * @return a new instance of the animal
+     */
 	protected abstract Animal createNewAnimal();
 	
+	/**
+     * Determine the coordinates to be scanned for animals looking for a mate.
+     * MaxDistance check of the area to be scanned is performed.
+     * If animals are found in the scanned area, it is checked whether they are of the same species and different gender.
+     * If the conditions are right, an animal of the same species will form in a random location and gender.  
+     * 
+     * @param animal the class of the Creature
+     */
 	protected void checkCouple(Class<?> animal) {
 		int currentRow = getLocation().getX();
 		int currentColumn = getLocation().getY();
@@ -32,6 +49,15 @@ public abstract class Animal extends Creature{
 		}
 	}
 	
+	/**
+     * Determine the coordinates to be scanned for animals looking for a hunt.
+     * The animal-specific MaxDistance check of the area to be scanned is performed and it is checked whether there is an animal in the specified x,y coordinates.
+     * If the condition is met, the animal and the types of animals it can hunt are checked.
+     * If an animal is hunted, it is removed from the list and zoo area.
+     * 
+     * @param animal the class of the Creature
+     * @param maxDistance the an animal maximum distance to search for prey
+     */
 	protected void checkHunt(Class<?> animal, int maxDistance) {
 	    int currentRow = getLocation().getX();
 	    int currentColumn = getLocation().getY();

@@ -15,6 +15,13 @@ import zoo.model.Creature;
 
 public class Zoo {
 	
+	/**
+     * Creates a specified number of animals of a given type and gender.
+     * 
+     * @param animalType the class of the Creature to create
+     * @param numberOfAnimals the number of animals to create
+     * @param gender the gender of the animals to create
+     */
 	public static <T extends Creature> void createAnimals(Class<T> animalType, int numberOfAnimals, Gender gender) {
 	    Constructor<T> constructor = null;
 	    try {
@@ -36,6 +43,13 @@ public class Zoo {
 	    }
 	}
 	
+	/**
+     * Runs the zoo simulation.
+     * As the list is modified while navigating through it, and so it navigates through the copy of the list to avoid errors.
+     * When the animals finish their moves, the list is updated and shuffled.
+     * We check to know when it's a dead animal's turn to move.
+     * The animal list is shuffled after each animal has made its move and after 1000 steps the animal count information is displayed.
+     */
 	public static void simulation() {
 		int stepNumber = 0;
 		while(stepNumber < 1000) {
@@ -44,7 +58,10 @@ public class Zoo {
 			
 		    Iterator<Creature> iterator = creaturesCopy.iterator();
 		    while (iterator.hasNext()) {
-		        Creature creature = iterator.next();    
+		        Creature creature = iterator.next();
+		        if(Area.getZoo()[creature.getLocation().getX()][creature.getLocation().getY()] == null) {
+		        	continue;
+		        }
 		        creature.move();
 		        stepNumber += creature.getStepNumber();
 		        if(stepNumber > 1000) {break;}
@@ -53,7 +70,9 @@ public class Zoo {
 		showAnimalsNumber();
 	}
 
-	
+	 /**
+     * Displays the number of each type of animal in the zoo.
+     */
 	private static void showAnimalsNumber() {
 		Map<Class<? extends Creature>, Integer> animalCounts = new HashMap<>();
 	    
