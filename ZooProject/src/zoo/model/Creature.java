@@ -17,6 +17,8 @@ public abstract class Creature {
 	
 	public abstract void move();
 	
+	public abstract int getStepNumber();
+	
 	public Location getLocation() {
 		return location;
 	}

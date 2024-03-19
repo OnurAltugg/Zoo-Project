@@ -8,14 +8,15 @@ public class Cow extends Animal{
 		super();
 	}
 
-	public static int getStepnumber() {
-		return stepNumber;
-	}
-	
 	@Override
 	public void move() {
 		checkCouple(Cow.class);
 		getLocation().changeLocation(stepNumber);
+	}
+	
+	@Override
+	public int getStepNumber() {
+		return stepNumber;
 	}
 	
 	@Override

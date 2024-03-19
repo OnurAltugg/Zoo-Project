@@ -7,16 +7,17 @@ public class Wolf extends Animal {
 	public Wolf() {
 		super();
 	}
-
-	public static int getStepnumber() {
-		return stepNumber;
-	}
 	
 	@Override
 	public void move() {
 		checkHunt(Wolf.class, 4);
 		checkCouple(Wolf.class);
 		getLocation().changeLocation(stepNumber);
+	}
+	
+	@Override
+	public int getStepNumber() {
+		return stepNumber;
 	}
 	
 	@Override

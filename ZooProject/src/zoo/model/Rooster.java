@@ -6,14 +6,15 @@ public class Rooster extends Animal {
 	
 	public Rooster() {}
 	
-	public static int getStepnumber() {
-		return stepNumber;
-	}
-	
 	@Override
 	public void move() {
 		checkCouple(Rooster.class);
 		getLocation().changeLocation(stepNumber);
+	}
+	
+	@Override
+	public int getStepNumber() {
+		return stepNumber;
 	}
 	
 	@Override

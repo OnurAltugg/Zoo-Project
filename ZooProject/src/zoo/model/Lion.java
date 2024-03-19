@@ -8,15 +8,16 @@ public class Lion extends Animal {
 		super();
 	}
 	
-	public static int getStepnumber() {
-		return stepNumber;
-	}
-	
 	@Override
 	public void move() {
 		checkHunt(Lion.class, 5);
 		checkCouple(Lion.class);
 		getLocation().changeLocation(stepNumber);
+	}
+	
+	@Override
+	public int getStepNumber() {
+		return stepNumber;
 	}
 	
 	@Override

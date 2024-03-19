@@ -8,14 +8,15 @@ public class HunterHuman extends Animal {
 		super();
 	}
 	
-	public static int getStepnumber() {
-		return stepNumber;
-	}
-	
 	@Override
 	public void move() {
 		checkHunt(HunterHuman.class, 8);
 		getLocation().changeLocation(stepNumber);
+	}
+	
+	@Override
+	public int getStepNumber() {
+		return stepNumber;
 	}
 	
 	@Override
