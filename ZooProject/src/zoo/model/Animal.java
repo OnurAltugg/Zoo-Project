@@ -13,11 +13,11 @@ public abstract class Animal extends Creature{
 		
 		int startRow = Math.max(Math.abs(currentRow - maxDistance), 0); 
 		int startColumn = Math.max(Math.abs(currentColumn - maxDistance), 0);
-		int finishRow = Math.min(currentRow + maxDistance, 500);
-		int finishColumn = Math.min(currentColumn + maxDistance, 500);
+		int finishRow = Math.min(currentRow + maxDistance, 499);
+		int finishColumn = Math.min(currentColumn + maxDistance, 499);
 		
-		for(int x = startRow; x < finishRow; x++) {
-			for(int y = startColumn; y < finishColumn; y++) {
+		for(int x = startRow; x <= finishRow; x++) {
+			for(int y = startColumn; y <= finishColumn; y++) {
 				if(
 						Math.abs(currentRow - x) + Math.abs(currentColumn - y) <= maxDistance 
 						&& animal.isInstance(Area.getZoo()[x][y])
@@ -38,36 +38,26 @@ public abstract class Animal extends Creature{
 	    
 	    int startRow = Math.max(Math.abs(currentRow - maxDistance), 0); 
 		int startColumn = Math.max(Math.abs(currentColumn - maxDistance), 0);
-		int finishRow = Math.min(currentRow + maxDistance, 500);
-		int finishColumn = Math.min(currentColumn + maxDistance, 500);
-		
-	    for (int x = startRow; x < finishRow; x++) {
-	        for (int y = startColumn; y < finishColumn; y++) {
-	            if (Math.abs(currentRow - x) + Math.abs(currentColumn - y) <= maxDistance) {
-	                if (animal.isInstance(Wolf.class)) {
-	                    if (Area.getZoo()[x][y] instanceof Sheep || 
-	                        Area.getZoo()[x][y] instanceof Chicken || 
-	                        Area.getZoo()[x][y] instanceof Rooster) {
-	                    	Area.removeCreature(Area.getZoo()[x][y]);
-	                        Area.getZoo()[x][y] = null;
-	                        return;
-	                    }
+		int finishRow = Math.min(currentRow + maxDistance, 499);
+		int finishColumn = Math.min(currentColumn + maxDistance, 499);
+	    for (int x = startRow; x <= finishRow; x++) {
+	        for (int y = startColumn; y <= finishColumn; y++) {
+	        	if ((Math.abs(currentRow - x) + Math.abs(currentColumn - y) <= maxDistance) && Area.getZoo()[x][y] != null) {
+	                Creature currentCreature = Area.getZoo()[x][y];
+	                if (animal == Wolf.class && (currentCreature instanceof Sheep || currentCreature instanceof Chicken || currentCreature instanceof Rooster)) {
+	                	Area.removeCreature(currentCreature);
+	                    Area.getZoo()[x][y] = null;
+	                    return;
 	                } 
-	                else if (animal.isInstance(Lion.class)) {
-	                    if (Area.getZoo()[x][y] instanceof Cow || 
-	                        Area.getZoo()[x][y] instanceof Sheep) {
-	                    	Area.removeCreature(Area.getZoo()[x][y]);
-	                    	Area.getZoo()[x][y] = null;
-	                        return;
-	                    }
-	                }
-	                else if (animal.isInstance(HunterHuman.class)) {
-	                	Area.removeCreature(Area.getZoo()[x][y]);
-	                	Area.getZoo()[x][y] = null;
-                        return;
-	                }
-	                else {
-	                	continue;
+	                else if (animal == Lion.class && (currentCreature instanceof Cow || currentCreature instanceof Sheep)) {
+	                	Area.removeCreature(currentCreature);
+	                    Area.getZoo()[x][y] = null;
+	                    return;
+	                } 
+	                else if (animal == HunterHuman.class && !(currentCreature instanceof HunterHuman) ) {
+	                	Area.removeCreature(currentCreature);
+	                    Area.getZoo()[x][y] = null;
+	                    return;
 	                }
 	            }
 	        }
