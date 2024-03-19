@@ -66,6 +66,7 @@ public abstract class Animal extends Creature{
 		int startColumn = Math.max(Math.abs(currentColumn - maxDistance), 0);
 		int finishRow = Math.min(currentRow + maxDistance, 499);
 		int finishColumn = Math.min(currentColumn + maxDistance, 499);
+		
 	    for (int x = startRow; x <= finishRow; x++) {
 	        for (int y = startColumn; y <= finishColumn; y++) {
 	        	if ((Math.abs(currentRow - x) + Math.abs(currentColumn - y) <= maxDistance) && Area.getZoo()[x][y] != null) {
