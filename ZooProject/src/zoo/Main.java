@@ -9,6 +9,8 @@ import zoo.model.*;
  * It creates various animals with specified genders and numbers, then starts the simulation.
  * 
  * Note: I increased the number of animals given in the task so that the change in the number of animals is more clearly visible.
+ * Note: Animals cannot move crosswise.
+ * Note: After a mating or a hunt, the animal returns to its original position. Here I have not included the distances to and from in the total number of steps.
  */
 public class Main {
 	
